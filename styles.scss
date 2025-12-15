@@ -240,10 +240,10 @@ img.search-icon {
     padding: 24px 40px 24px 24px;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
-    @media (max-width: 360px) {
-        gap: 16px;
-        padding: 16px;
-    }
+    //@media (max-width: 360px) {
+    //    gap: 16px;
+    //    padding: 16px;
+    //}
 }
 
 .course-card {
