@@ -282,17 +282,26 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.display = title.includes(query) ? 'block' : 'none';
         });
         const categoryCounts = {};
+        let allCount =0;
         courseCards.forEach(p => {
             let category = p.querySelector('.course-category').textContent.toLowerCase();
             categoryCounts[category] = categoryCounts[category] || 0;
-            categoryCounts[category] += p.style.display !=="none"  ? 1 : 0;
+            if (p.style.display !=="none" ){
+                categoryCounts[category] += 1;
+                allCount+=1;
+            }
+            // categoryCounts[category] += p.style.display !=="none"  ? 1 : 0;
+
         });
+
+        document.getElementById('allBtn').textContent=  `All (${allCount})`;
 
         document.querySelectorAll("#categories button").forEach(button => {
             // Берём текст кнопки, приводим к нижнему регистру
             const text = button.textContent.trim().toLowerCase();
 
             // Ищем ключ из объекта, который содержится в тексте кнопки
+
             for (const key in categoryCounts) {
                 if (text.includes(key)) {
                     // Заменяем всё, что после названия, на число
