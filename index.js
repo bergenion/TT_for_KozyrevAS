@@ -1,4 +1,4 @@
-// import './styles.scss'
+import './styles.scss'
 const people = [
     {
         imageSrc: 'images/human%20(1).jpg',
