@@ -36,7 +36,13 @@ const people = [
     { imageSrc: img16, category: 'Design', title: 'UX/UI дизайн и пользовательский опыт', price: '$140', instructor: 'Grace Hall', showDefault: false },
     { imageSrc: img17, category: 'Development', title: 'Современные технологии программирования', price: '$200', instructor: 'Lucas Allen', showDefault: false },
 ];
-
+ const CategoryColors ={
+     "Marketing": "#03CEA4",
+     "Design": "#F52F6E",
+     "Development": "#7772F1",
+     "HR & Recruiting": "#F89828",
+     "Management": "#5A87FC",
+ }
 
 
 const fragment = document.createDocumentFragment();
@@ -44,7 +50,7 @@ const DEFAULT_CARD_SHOWN = 9;
 let cardsLimit = DEFAULT_CARD_SHOWN;
 
 
-function createCourseCard({imageSrc, category, title, price, instructor, showDefault}) {
+function createCourseCard({imageSrc, category, title, price, instructor, showDefault,categoryColor}) {
     const card = document.createElement('div');
     card.className = 'course-card';
 
@@ -61,6 +67,7 @@ function createCourseCard({imageSrc, category, title, price, instructor, showDef
 
     const cat = document.createElement('span');
     cat.className = 'course-category';
+    cat.style.background= CategoryColors[category];
     cat.textContent = category;
 
     const h3 = document.createElement('h3');
