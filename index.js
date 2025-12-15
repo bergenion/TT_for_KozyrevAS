@@ -1,142 +1,42 @@
 import './styles.scss'
+import img1 from '/images/human (1).jpg';
+import img2 from '/images/human (2).jpg';
+import img3 from '/images/human (3).jpg';
+import img4 from '/images/human (4).jpg';
+import img5 from '/images/human (5).jpg';
+import img6 from '/images/human (6).jpg';
+import img7 from '/images/human (7).jpg';
+import img8 from '/images/human (8).jpg';
+import img9 from '/images/human (9).jpg';
+import img10 from '/images/human (10).jpg';
+import img11 from '/images/human (11).jpg';
+import img12 from '/images/human (12).jpg';
+import img13 from '/images/human (13).jpg';
+import img14 from '/images/human (14).jpg';
+import img15 from '/images/human (15).jpg';
+import img16 from '/images/human (16).jpg';
+import img17 from '/images/human (17).jpg';
+
 const people = [
-    {
-        imageSrc: 'images/human%20(1).jpg',
-        category: 'Marketing',
-        title: 'Основы продвижения и рекламы онлайн',
-        price: '$180',
-        instructor: 'Alice Johnson',
-        showDefault: true
-    },
-    {
-        imageSrc: 'images/human%20(2).jpg',
-        category: 'Management',
-        title: 'Эффективное управление командой проектов',
-        price: '$220',
-        instructor: 'Michael Smith',
-        showDefault: true
-    },
-    {
-        imageSrc: 'images/human%20(3).jpg',
-        category: 'HR & Recruiting',
-        title: 'Современные методы подбора персонала',
-        price: '$140',
-        instructor: 'Sophia Brown',
-        showDefault: true
-    },
-    {
-        imageSrc: 'images/human%20(4).jpg',
-        category: 'Marketing',
-        title: 'Стратегии роста бренда и продаж',
-        price: '$260',
-        instructor: 'Daniel Wilson',
-        showDefault: true
-    },
-    {
-        imageSrc: 'images/human%20(5).jpg',
-        category: 'Management',
-        title: 'Лидерство и управление изменениями',
-        price: '$200',
-        instructor: 'Emma Davis',
-        showDefault: true
-    },
-    {
-        imageSrc: 'images/human%20(6).jpg',
-        category: 'Design',
-        title: 'Креативный дизайн и визуальные концепции',
-        price: '$300',
-        instructor: 'Olivia Taylor',
-        showDefault: true
-    },
-    {
-        imageSrc: 'images/human%20(7).jpg',
-        category: 'HR & Recruiting',
-        title: 'Интервью и оценка кандидатов',
-        price: '$120',
-        instructor: 'James Miller',
-        showDefault: true
-    },
-    {
-        imageSrc: 'images/human%20(8).jpg',
-        category: 'HR & Recruiting',
-        title: 'Управление талантами и карьерой',
-        price: '$240',
-        instructor: 'Isabella Moore',
-        showDefault: true
-    },
-    {
-        imageSrc: 'images/human%20(9).jpg',
-        category: 'Management',
-        title: 'Планирование ресурсов и процессов',
-        price: '$160',
-        instructor: 'William Anderson',
-        showDefault: true
-    },
-    {
-        imageSrc: 'images/human%20(10).jpg',
-        category: 'Marketing',
-        title: 'Аналитика и оптимизация кампаний',
-        price: '$280',
-        instructor: 'Charlotte Thomas',
-        showDefault: false
-    },
-    {
-        imageSrc: 'images/human%20(11).jpg',
-        category: 'HR & Recruiting',
-        title: 'HR стратегии и корпоративная культура',
-        price: '$100',
-        instructor: 'Benjamin White',
-        showDefault: false
-    },
-    {
-        imageSrc: 'images/human%20(12).jpg',
-        category: 'Development',
-        title: 'Основы веб-разработки и программирования',
-        price: '$220',
-        instructor: 'Amelia Harris',
-        showDefault: false
-    },
-    {
-        imageSrc: 'images/human%20(13).jpg',
-        category: 'Marketing',
-        title: 'Контент-маркетинг и работа с соцсетями',
-        price: '$300',
-        instructor: 'Henry Clark',
-        showDefault: false
-    },
-    {
-        imageSrc: 'images/human%20(14).jpg',
-        category: 'Development',
-        title: 'Разработка приложений и тестирование',
-        price: '$180',
-        instructor: 'Mia Lewis',
-        showDefault: false
-    },
-    {
-        imageSrc: 'images/human%20(15).jpg',
-        category: 'HR & Recruiting',
-        title: 'Обучение и развитие сотрудников',
-        price: '$260',
-        instructor: 'Alexander Walker',
-        showDefault: false
-    },
-    {
-        imageSrc: 'images/human%20(16).jpg',
-        category: 'Design',
-        title: 'UX/UI дизайн и пользовательский опыт',
-        price: '$140',
-        instructor: 'Grace Hall',
-        showDefault: false
-    },
-    {
-        imageSrc: 'images/human%20(17).jpg',
-        category: 'Development',
-        title: 'Современные технологии программирования',
-        price: '$200',
-        instructor: 'Lucas Allen',
-        showDefault: false
-    },
+    { imageSrc: img1, category: 'Marketing', title: 'Основы продвижения и рекламы онлайн', price: '$180', instructor: 'Alice Johnson', showDefault: true },
+    { imageSrc: img2, category: 'Management', title: 'Эффективное управление командой проектов', price: '$220', instructor: 'Michael Smith', showDefault: true },
+    { imageSrc: img3, category: 'HR & Recruiting', title: 'Современные методы подбора персонала', price: '$140', instructor: 'Sophia Brown', showDefault: true },
+    { imageSrc: img4, category: 'Marketing', title: 'Стратегии роста бренда и продаж', price: '$260', instructor: 'Daniel Wilson', showDefault: true },
+    { imageSrc: img5, category: 'Management', title: 'Лидерство и управление изменениями', price: '$200', instructor: 'Emma Davis', showDefault: true },
+    { imageSrc: img6, category: 'Design', title: 'Креативный дизайн и визуальные концепции', price: '$300', instructor: 'Olivia Taylor', showDefault: true },
+    { imageSrc: img7, category: 'HR & Recruiting', title: 'Интервью и оценка кандидатов', price: '$120', instructor: 'James Miller', showDefault: true },
+    { imageSrc: img8, category: 'HR & Recruiting', title: 'Управление талантами и карьерой', price: '$240', instructor: 'Isabella Moore', showDefault: true },
+    { imageSrc: img9, category: 'Management', title: 'Планирование ресурсов и процессов', price: '$160', instructor: 'William Anderson', showDefault: true },
+    { imageSrc: img10, category: 'Marketing', title: 'Аналитика и оптимизация кампаний', price: '$280', instructor: 'Charlotte Thomas', showDefault: false },
+    { imageSrc: img11, category: 'HR & Recruiting', title: 'HR стратегии и корпоративная культура', price: '$100', instructor: 'Benjamin White', showDefault: false },
+    { imageSrc: img12, category: 'Development', title: 'Основы веб-разработки и программирования', price: '$220', instructor: 'Amelia Harris', showDefault: false },
+    { imageSrc: img13, category: 'Marketing', title: 'Контент-маркетинг и работа с соцсетями', price: '$300', instructor: 'Henry Clark', showDefault: false },
+    { imageSrc: img14, category: 'Development', title: 'Разработка приложений и тестирование', price: '$180', instructor: 'Mia Lewis', showDefault: false },
+    { imageSrc: img15, category: 'HR & Recruiting', title: 'Обучение и развитие сотрудников', price: '$260', instructor: 'Alexander Walker', showDefault: false },
+    { imageSrc: img16, category: 'Design', title: 'UX/UI дизайн и пользовательский опыт', price: '$140', instructor: 'Grace Hall', showDefault: false },
+    { imageSrc: img17, category: 'Development', title: 'Современные технологии программирования', price: '$200', instructor: 'Lucas Allen', showDefault: false },
 ];
+
 
 
 const fragment = document.createDocumentFragment();
