@@ -235,16 +235,13 @@ img.search-icon {
 }
 
 .course-grid {
-    display: grid;
-    gap: 24px;
-    padding: 24px 40px 24px 24px;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-    //@media (max-width: 360px) {
-    //    gap: 16px;
-    //    padding: 16px;
-    //}
+  display: grid;
+  gap: 24px;
+  padding: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  justify-content: center;
 }
+
 
 .course-card {
     background: #FFFFFF;
@@ -258,6 +255,7 @@ img.search-icon {
     transition: transform 0.3s ease;
     margin: 0 10px;
     max-width: 350px;
+    cursor: pointer;
 
     &:hover {
         transform: translateY(-4px);
