@@ -1,0 +1,15 @@
+{
+  "name": "KozyrevAS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx vite build",
+    "dev": "vite"
+  },
+  "private": true,
+  "devDependencies": {
+    "sass": "^1.96.0",
+    "vite": "^7.3.0"
+  }
+}
