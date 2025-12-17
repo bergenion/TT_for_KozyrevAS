@@ -174,65 +174,63 @@ function createCourseCard({imageSrc, category, title, price, instructor, showDef
     card.className = 'course-card';
 
     const imageWrap = document.createElement('div');
-    imageWrap.className = 'course-image';
+    imageWrap.className = 'course-card__image';
 
     const img = document.createElement('img');
+    img.className = 'course-card__image-media';
     img.src = imageSrc;
     img.alt = instructor;
     imageWrap.appendChild(img);
 
     const content = document.createElement('div');
-    content.className = 'course-content';
+    content.className = 'course-card__content';
 
     const cat = document.createElement('span');
-    cat.className = 'course-category';
+    cat.className = 'course-card__category';
     cat.style.background = CategoryColors[category];
     cat.textContent = category;
 
     const h3 = document.createElement('h3');
-    h3.className = 'course-title';
+    h3.className = 'course-card__title';
     h3.textContent = title;
 
     const priceEl = document.createElement('p');
-    priceEl.className = 'course-price';
+    priceEl.className = 'course-card__price';
     priceEl.textContent = price;
 
     const instructorEl = document.createElement('p');
-    instructorEl.className = 'course-instructor';
+    instructorEl.className = 'course-card__instructor';
     instructorEl.textContent = '| by ' + instructor;
 
     content.append(cat, h3, priceEl, instructorEl);
     card.append(imageWrap, content);
 
-    card.style.display = showDefault ? '' : 'none';
+    card.style.display = showDefault ? 'block' : 'none';
     return card;
 }
 
 
 function renderCategoryButtons(people) {
     const container = document.getElementById('categories');
-    container.innerHTML = ''; // очистим на всякий случай
+    container.innerHTML = '';
 
-    // Считаем количество всех элементов
     const totalCount = people.length;
 
-    // Создаём кнопку "All"
     const allBtn = document.createElement('button');
     allBtn.id = 'allBtn';
-    allBtn.className = 'active';
+    allBtn.className = 'courses__category-btn courses__category-btn--active';
     allBtn.textContent = `All (${totalCount})`;
     allBtn.categoryName = 'All';
     container.appendChild(allBtn);
 
-    // Считаем количество по категориям
     const categoryCounts = {};
     people.forEach(p => {
         categoryCounts[p.category] = (categoryCounts[p.category] || 0) + 1;
     });
 
-    // Создаём кнопки для каждой категории
     Object.entries(categoryCounts).forEach(([category, count]) => {
         const btn = document.createElement('button');
+        btn.className = 'courses__category-btn';
         btn.textContent = `${category} (${count})`;
         btn.categoryName = category;
         container.appendChild(btn);
@@ -247,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
     grid.appendChild(fragment);
     const loadMore = document.getElementById('showMore');
     const searchInput = document.getElementById('searchInput');
-    const categoryButtons = document.querySelectorAll('.categories button');
+    const categoryButtons = document.querySelectorAll('.courses__category-btn');
     const courseCards = document.querySelectorAll('.course-card');
 
 
@@ -279,15 +277,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const query = searchInput.value.toLowerCase();
         
         // Получаем активную категорию
-        const activeButton = document.querySelector('.categories button.active');
+        const activeButton = document.querySelector('.courses__category-btn.courses__category-btn--active');
         const activeCategory = activeButton ? activeButton.categoryName.toLowerCase() : 'all';
         
         let shownCards = 0;
         let filteredCardsCount = 0;
         
         courseCards.forEach(card => {
-            const title = card.querySelector('.course-title').textContent.toLowerCase();
-            const cardCategory = card.querySelector('.course-category').textContent.toLowerCase();
+            const title = card.querySelector('.course-card__title').textContent.toLowerCase();
+            const cardCategory = card.querySelector('.course-card__category').textContent.toLowerCase();
             
             const matchesSearch = title.includes(query);
             const matchesCategory = activeCategory === 'all' || cardCategory === activeCategory;
@@ -317,9 +315,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const categoryCounts = {};
         let allCount = 0;
         courseCards.forEach(p => {
-            let category = p.querySelector('.course-category').textContent.toLowerCase();
+            let category = p.querySelector('.course-card__category').textContent.toLowerCase();
             categoryCounts[category] = categoryCounts[category] || 0;
-            const title = p.querySelector('.course-title').textContent.toLowerCase();
+            const title = p.querySelector('.course-card__title').textContent.toLowerCase();
             if (title.includes(query)) {
                 categoryCounts[category] += 1;
                 allCount += 1;
@@ -352,14 +350,14 @@ document.addEventListener('DOMContentLoaded', () => {
             let shownCards = 0, filteredCardsCount = 0;
 
             // Удаляем класс active у всех кнопок
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
+            categoryButtons.forEach(btn => btn.classList.remove('courses__category-btn--active'));
+            button.classList.add('courses__category-btn--active');
 
             const category = button.categoryName.toLowerCase();
 
             courseCards.forEach(card => {
-                const cardCategory = card.querySelector('.course-category').textContent.toLowerCase();
-                const title = card.querySelector('.course-title').textContent.toLowerCase();
+                const cardCategory = card.querySelector('.course-card__category').textContent.toLowerCase();
+                const title = card.querySelector('.course-card__title').textContent.toLowerCase();
                 const query = searchInput.value.toLowerCase();
 
                 const matchesCategory = category === 'all' || cardCategory === category;

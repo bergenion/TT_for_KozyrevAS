@@ -9,41 +9,33 @@
     <title>Our Online Courses</title>
 </head>
 <body>
-<div class="parent-flex-container">
-    <div class="page-title">
-        <h6 class="subheading">Enjoy your studying!</h6>
-        <h1 class="main-title">Our online courses</h1>
-    </div>
+<div class="courses">
+    <header class="courses__header">
+        <p class="courses__subtitle">Enjoy your studying!</p>
+        <h1 class="courses__title">Our online courses</h1>
+    </header>
 
-    <div class="page-container">
-        <div class="toolbar">
-            <div id="categories" class="categories">
-            </div>
+    <main class="courses__content">
+        <div class="courses__toolbar">
+            <div id="categories" class="courses__categories"></div>
 
-
-            <div class="search">
-                <input id="searchInput" type="text" placeholder="Search course...">
-                <img class="search-icon" src="/images/search.png" alt="">
-
+            <div class="courses__search">
+                <input id="searchInput" class="courses__search-input" type="text" placeholder="Search course...">
+                <img class="courses__search-icon" src="/images/search.png" alt="">
             </div>
         </div>
 
-        <div id="courseGrid" class="course-grid">
+        <div id="courseGrid" class="courses__grid"></div>
 
-
-        </div>
-
-
-        <div id="showMore" class="load-more-wrapper">
-            <button class="load-more-btn">
-                <span class="icon">&#x21bb;</span> Load more
+        <div id="showMore" class="courses__load-more">
+            <button class="courses__load-more-btn">
+                <span class="courses__load-more-icon">&#x21bb;</span> Load more
             </button>
         </div>
-
-
-    </div>
+    </main>
 </div>
 
 </body>
 </html>
+
 
