@@ -277,24 +277,56 @@ document.addEventListener('DOMContentLoaded', () => {
     // 🔍 Поиск по названию курса
     searchInput.addEventListener('input', () => {
         const query = searchInput.value.toLowerCase();
+        
+        // Получаем активную категорию
+        const activeButton = document.querySelector('.categories button.active');
+        const activeCategory = activeButton ? activeButton.categoryName.toLowerCase() : 'all';
+        
+        let shownCards = 0;
+        let filteredCardsCount = 0;
+        
         courseCards.forEach(card => {
             const title = card.querySelector('.course-title').textContent.toLowerCase();
-            card.style.display = title.includes(query) ? 'block' : 'none';
+            const cardCategory = card.querySelector('.course-category').textContent.toLowerCase();
+            
+            const matchesSearch = title.includes(query);
+            const matchesCategory = activeCategory === 'all' || cardCategory === activeCategory;
+            const matchesBoth = matchesSearch && matchesCategory;
+            
+            if (matchesBoth) {
+                filteredCardsCount += 1;
+                
+                // Показываем карточку только если она в пределах лимита
+                if (shownCards < cardsLimit) {
+                    card.style.display = 'block';
+                    card.overflowHide = false;
+                    shownCards += 1;
+                } else {
+                    card.style.display = 'none';
+                    card.overflowHide = true;
+                }
+            } else {
+                card.style.display = 'none';
+                card.overflowHide = false;
+            }
         });
+        
+        // Скрываем кнопку "Load More", если все отфильтрованные карточки уже показаны
+        loadMore.style.display = filteredCardsCount > shownCards ? 'block' : 'none';
+        
         const categoryCounts = {};
-        let allCount =0;
+        let allCount = 0;
         courseCards.forEach(p => {
             let category = p.querySelector('.course-category').textContent.toLowerCase();
             categoryCounts[category] = categoryCounts[category] || 0;
-            if (p.style.display !=="none" ){
+            const title = p.querySelector('.course-title').textContent.toLowerCase();
+            if (title.includes(query)) {
                 categoryCounts[category] += 1;
-                allCount+=1;
+                allCount += 1;
             }
-            // categoryCounts[category] += p.style.display !=="none"  ? 1 : 0;
-
         });
 
-        document.getElementById('allBtn').textContent=  `All (${allCount})`;
+        document.getElementById('allBtn').textContent = `All (${allCount})`;
 
         document.querySelectorAll("#categories button").forEach(button => {
             // Берём текст кнопки, приводим к нижнему регистру
@@ -309,7 +341,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
-        // console.log(categoryCounts);
     });
 
     // 🧭 Фильтрация по категории
