@@ -169,7 +169,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 20px;
     max-width: 1200px;
     width: 100%;
@@ -181,8 +181,8 @@ body {
     flex-wrap: wrap;
     gap: 12px;
     flex: 1 1 auto;
-    min-width: 300px;
-    justify-content: center;
+    min-width: 0;
+    justify-content: flex-start;
 
     button {
         padding: 10px 16px;
@@ -213,6 +213,8 @@ body {
     gap: 8px;
     flex-shrink: 0;
     height: 46px;
+    margin-left: auto;
+    flex-basis: auto;
 
     input {
         padding: 10px 14px;
@@ -229,6 +231,51 @@ body {
     }
 }
 
+// Когда search переносится на новую строку - центрируем его
+// Используем flex-basis: 100% чтобы search занимал всю ширину строки при переносе
+// Это заставит его быть на новой строке и центрироваться
+@media (max-width: 1300px) and (min-width: 601px) {
+    .toolbar {
+        justify-content: center;
+    }
+
+    .categories {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .search {
+        flex-basis: 100%;
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+// Для очень маленьких экранов - вертикальное расположение
+@media (max-width: 600px) {
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .categories {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .search {
+        margin-left: 0;
+        width: 100%;
+        justify-content: stretch;
+
+        input {
+            flex: 1;
+            width: 100%;
+        }
+    }
+}
+
 img.search-icon {
     position: relative;
     right: 35px;
@@ -240,6 +287,22 @@ img.search-icon {
   padding: 24px;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   justify-content: center;
+  justify-items: center;
+}
+
+@media (min-width: 900px) and (max-width: 1000px) {
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 24px;
+    padding-right: 24px;
+    justify-content: center;
+    justify-items: center;
+  }
+  
+  .course-card {
+    max-width: 350px;
+    width: 100%;
+  }
 }
 
 
@@ -253,7 +316,6 @@ img.search-icon {
     flex-direction: column;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    margin: 0 10px;
     max-width: 350px;
     cursor: pointer;
 
@@ -272,7 +334,6 @@ img.search-icon {
 
         .course-category {
             display: inline-block;
-            //background-color: #ffcc00;
             color: #FFF;
             font-weight: bold;
             padding: 4px 8px;
@@ -307,16 +368,20 @@ img.search-icon {
     margin: 20px 0;
 
     .load-more-btn {
-        background-color: rgba(0, 0, 0, 0);
-        border: none;
-        padding: 10px 20px;
+        background: rgba(0, 0, 0, 0);
+        border: 1px solid rgba(0, 0, 0, 0);
+        padding: 10px 16px;
         font-size: 16px;
         font-weight: 500;
         border-radius: 6px;
         cursor: pointer;
         align-items: center;
         gap: 8px;
-        transition: background-color 0.3s ease;
+        transition: border 0.2s, color 0.2s;
+        color: #9A9CA5;
+        height: 46px;
+        display: inline-flex;
+        white-space: nowrap;
 
         .icon {
             font-size: 18px;
@@ -325,7 +390,8 @@ img.search-icon {
         }
 
         &:hover {
-            background-color: #e0e0e0;
+            border: 1px solid gray;
+            background: rgba(0, 0, 0, 0);
 
             .icon {
                 transform: rotate(90deg);
